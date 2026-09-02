@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider, useAuth } from "@/hooks/use-auth";
 import { AgentWorkspaceProvider } from "@/hooks/use-agent-workspace";
 import { LoginForm } from "@/components/login-form";
+import { AgentConfirmationDialog } from "@/components/agent-confirmation-dialog";
 import Home from "@/pages/home";
 
 function AuthenticatedApp() {
@@ -27,6 +28,7 @@ function App() {
       <AuthProvider>
         <AgentWorkspaceProvider>
           <AuthenticatedApp />
+          <AgentConfirmationDialog />
         </AgentWorkspaceProvider>
       </AuthProvider>
       <Toaster />

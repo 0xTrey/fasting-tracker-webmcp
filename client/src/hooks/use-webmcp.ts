@@ -19,6 +19,7 @@ import {
   type WorkspaceLayout,
 } from "@/lib/agent-workspace";
 import { BROWSER_WEBMCP_TOOL_NAMES } from "@/lib/webmcp-tools";
+import { agentConfirmation } from "@/lib/agent-confirmation";
 
 export type WebMcpStatus = "unsupported" | "registering" | "ready" | "failed";
 
@@ -57,8 +58,8 @@ function boundedInteger(value: unknown, fallback: number, minimum: number, maxim
   return Math.max(minimum, Math.min(maximum, value));
 }
 
-function requireAgentConfirmation(message: string): void {
-  if (!window.confirm(message)) {
+async function requireAgentConfirmation(message: string, approveLabel: string, signal: AbortSignal): Promise<void> {
+  if (!await agentConfirmation.request(message, approveLabel, signal)) {
     throw new Error("The user canceled this tracker change. Nothing changed.");
   }
 }
@@ -440,7 +441,11 @@ export function useWebMcp(): WebMcpStatus {
           }
           if (!Number.isInteger(weeklyGoal) || (weeklyGoal as number) < 1 || (weeklyGoal as number) > 7) throw new Error("weeklyGoal must be 1 to 7.");
           if (typeof startDate !== "string" || typeof endDate !== "string") throw new Error("startDate and endDate are required.");
-          requireAgentConfirmation(`Create “${name.trim()}” from ${startDate} through ${endDate}, with ${(targetDurationMinutes as number) / 60} hours as the user-chosen target and ${weeklyGoal} fasts per week?`);
+          await requireAgentConfirmation(
+            `Create “${name.trim()}” from ${startDate} through ${endDate}, with ${(targetDurationMinutes as number) / 60} hours as the user-chosen target and ${weeklyGoal} fasts per week?`,
+            "Create experiment",
+            signal,
+          );
           const result = await request<MutationReceipt<FastingExperiment>>(
             "/api/experiments",
             {
@@ -467,7 +472,11 @@ export function useWebMcp(): WebMcpStatus {
             signal,
           );
           if (!experiment) throw new Error("No experiment is active.");
-          requireAgentConfirmation(`Cancel “${experiment.name}”? Its settings will be closed, but fasting history will stay unchanged.`);
+          await requireAgentConfirmation(
+            `Cancel “${experiment.name}”? Its settings will be closed, but fasting history will stay unchanged.`,
+            "End experiment",
+            signal,
+          );
           const result = await request<MutationReceipt<FastingExperiment>>(
             `/api/experiments/${experiment.id}/cancel`,
             {
@@ -503,7 +512,11 @@ export function useWebMcp(): WebMcpStatus {
           if (typeof targetDurationMinutes !== "number" || !Number.isInteger(targetDurationMinutes)) {
             throw new Error("targetDurationMinutes must be a whole number.");
           }
-          requireAgentConfirmation(`Allow your agent to start a ${targetDurationMinutes}-minute fast now?`);
+          await requireAgentConfirmation(
+            `Your agent wants to start a ${targetDurationMinutes}-minute fast now.`,
+            "Start fast",
+            signal,
+          );
           const result = await request<MutationReceipt<Fast>>(
             "/api/fasts/start",
             {
@@ -526,7 +539,11 @@ export function useWebMcp(): WebMcpStatus {
           const fasts = await readFasts(signal);
           const current = fasts.find((fast) => !fast.endTime);
           if (!current) throw new Error("No fast is active.");
-          requireAgentConfirmation("Allow your agent to complete the active fast now?");
+          await requireAgentConfirmation(
+            "Your agent wants to complete the active fast now.",
+            "Complete fast",
+            signal,
+          );
           const result = await request<MutationReceipt<Fast>>(
             "/api/fasts/stop",
             {
@@ -563,7 +580,11 @@ export function useWebMcp(): WebMcpStatus {
           const fasts = await readFasts(signal);
           const current = fasts.find((fast) => !fast.endTime);
           if (!current) throw new Error("No fast is active.");
-          requireAgentConfirmation(`Allow your agent to change the active start time to ${correctedStart.toLocaleString()}?`);
+          await requireAgentConfirmation(
+            `Your agent wants to change the active start time to ${correctedStart.toLocaleString()}.`,
+            "Change start time",
+            signal,
+          );
           const result = await request<MutationReceipt<Fast>>(
             `/api/fasts/${current.id}/start-time`,
             {
