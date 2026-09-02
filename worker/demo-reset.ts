@@ -38,7 +38,6 @@ export async function resetDemo(request: Request, env: Env, actor: Actor): Promi
     env.FASTING_DB.prepare("DELETE FROM fasts"),
     env.FASTING_DB.prepare("DELETE FROM fasting_experiments"),
     env.FASTING_DB.prepare("DELETE FROM idempotency_keys"),
-    env.FASTING_DB.prepare("DELETE FROM audit_events"),
     ...BASELINE_FASTS.map(([start, end, target, updated]) => env.FASTING_DB.prepare(
       "INSERT INTO fasts (start_time, end_time, target_duration, updated_at) VALUES (?1, ?2, ?3, ?4)",
     ).bind(start, end, target, updated)),

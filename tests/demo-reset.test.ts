@@ -35,7 +35,7 @@ describe("demo reset", () => {
     expect(batch).not.toHaveBeenCalled();
   });
 
-  it("restores the eleven-record baseline, clears prior activity, and appends an audit receipt", async () => {
+  it("restores the eleven-record baseline and appends an audit receipt", async () => {
     const statements: unknown[] = [];
     const batch = vi.fn(async (items: unknown[]) => { statements.push(...items); return []; });
     const response = await resetDemo(
@@ -51,7 +51,6 @@ describe("demo reset", () => {
     const result = await response.json() as { data: { fastCount: number } };
     expect(result.data.fastCount).toBe(11);
     expect(batch).toHaveBeenCalledOnce();
-    expect(statements).toHaveLength(16);
-    expect(statements.some((statement) => (statement as { sql?: string }).sql === "DELETE FROM audit_events")).toBe(true);
+    expect(statements).toHaveLength(15);
   });
 });
