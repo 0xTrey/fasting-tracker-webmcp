@@ -1,35 +1,35 @@
 1
-00:00:00,000 --> 00:00:16,584
-This is Fasting Tracker, a real iPhone-first web app I use to start a fast, check the timer, and understand my history. The human interface is the product.WebMCP adds a second control surface, built and bounded by the application itself.
+00:00:00,000 --> 00:00:16,400
+This is Fasting Tracker, an iPhone-first web app for starting a fast, checking the timer, and understanding your history. The human interface is the product. WebMCP adds a second control surface, built and bounded by the application itself.
 
 2
-00:00:16,718 --> 00:00:29,331
-In a chatbot, I can ask, "Show my last 90 days as a duration trend." The agent calls create history view. It does not guess where to click.The tracker renders its own chart from the same synthetic data.
+00:00:16,536 --> 00:00:29,485
+In a chatbot, I can ask, "Show my last 90 days as a duration trend." The agent calls create history view. It does not guess where to click. The tracker renders its own chart from the same synthetic data.
 
 3
-00:00:29,466 --> 00:00:40,233
+00:00:29,623 --> 00:00:40,355
 Next, "Highlight the records behind my longest fast." The agent calls highlight history records, and the app points back to the source entry. The explanation stays tied to evidence.
 
 4
-00:00:40,359 --> 00:00:53,634
-I can ask, "Compare 16, 18, and 20-hour options without starting a fast." The agent calls preview fasting decision.It calculates end times and context, but it does not change any data.
+00:00:40,490 --> 00:00:53,439
+I can ask, "Compare 16, 18, and 20-hour options without starting a fast." The agent calls preview fasting decision. It calculates end times and context, but it does not change any data.
 
 5
-00:00:53,760 --> 00:00:59,848
+00:00:53,577 --> 00:00:59,793
 The agent can also switch this tab to Bright light. That is a reversible view change owned by the app.
 
 6
-00:00:59,977 --> 00:01:11,835
+00:00:59,925 --> 00:01:13,200
 Now ask to start an 18-hour fast. This one changes data, so the flow stops. The user sees the exact action and approves it. Only then does the tracker save the fast and produce an audit receipt.
 
 7
-00:01:11,967 --> 00:01:21,318
+00:01:13,326 --> 00:01:22,258
 There are 17 named capabilities. The agent can read, compare, visualize, preview, and request a small set of confirmed changes.
 
 8
-00:01:21,518 --> 00:01:29,359
+00:01:22,458 --> 00:01:30,508
 It cannot sign in, delete history, rewrite completed records, reach admin controls, or provide medical advice.
 
 9
-00:01:29,496 --> 00:01:38,254
+00:01:30,645 --> 00:01:39,612
 One real app for people. Safe, explicit capabilities for agents. Try the live demo, and inspect the MIT-licensed source.

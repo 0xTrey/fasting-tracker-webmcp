@@ -1,4 +1,4 @@
-This is Fasting Tracker, a real iPhone-first web app I use to start a fast, check the timer, and understand my history. The human interface is the product. WebMCP adds a second control surface, built and bounded by the application itself.
+This is Fasting Tracker, an iPhone-first web app for starting a fast, checking the timer, and understanding your history. The human interface is the product. WebMCP adds a second control surface, built and bounded by the application itself.
 
 In a chatbot, I can ask, "Show my last 90 days as a duration trend." The agent calls create history view. It does not guess where to click. The tracker renders its own chart from the same synthetic data.
 

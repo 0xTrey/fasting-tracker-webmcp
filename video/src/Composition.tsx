@@ -23,11 +23,11 @@ const display = 'Georgia, Times New Roman, serif';
 const sans = 'Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
 
 const MASTER_SCENES: Array<{name: SceneName; from: number; duration: number}> = [
-  {name: 'opening', from: 0, duration: 9}, {name: 'human', from: 9, duration: 7.7},
-  {name: 'trend', from: 16.7, duration: 12.8}, {name: 'highlight', from: 29.5, duration: 10.9},
-  {name: 'compare', from: 40.4, duration: 13.4}, {name: 'bright', from: 53.8, duration: 6.2},
-  {name: 'approval', from: 60, duration: 12}, {name: 'boundaries', from: 72, duration: 17.5},
-  {name: 'end', from: 89.5, duration: 10.5},
+  {name: 'opening', from: 0, duration: 9}, {name: 'human', from: 9, duration: 7.5},
+  {name: 'trend', from: 16.5, duration: 13.1}, {name: 'highlight', from: 29.6, duration: 10.9},
+  {name: 'compare', from: 40.5, duration: 13.1}, {name: 'bright', from: 53.6, duration: 6.3},
+  {name: 'approval', from: 59.9, duration: 13.4}, {name: 'boundaries', from: 73.3, duration: 17.3},
+  {name: 'end', from: 90.6, duration: 9.4},
 ];
 const VERTICAL_SCENES: Array<{name: SceneName; from: number; duration: number}> = [
   {name: 'opening', from: 0, duration: 6}, {name: 'human', from: 6, duration: 6},

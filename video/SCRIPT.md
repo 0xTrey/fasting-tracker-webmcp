@@ -4,7 +4,7 @@ The master cut is 1 minute 40 seconds. It opens on the working product, keeps ev
 
 ## Narration
 
-This is Fasting Tracker, a real iPhone-first web app I use to start a fast, check the timer, and understand my history. The human interface is the product. WebMCP adds a second control surface, built and bounded by the application itself.
+This is Fasting Tracker, an iPhone-first web app for starting a fast, checking the timer, and understanding your history. The human interface is the product. WebMCP adds a second control surface, built and bounded by the application itself.
 
 In a chatbot, I can ask, “Show my last 90 days as a duration trend.” The agent calls `create_history_view`. It does not guess where to click. The tracker renders its own chart from the same synthetic data.
 
@@ -27,12 +27,12 @@ One real app for people. Safe, explicit capabilities for agents. Try the live de
 | 0:00-0:09 | Working iPhone timer and history metrics | Human-first thesis |
 | 0:09-0:17 | Normal timer and recent-record workflow | Agent access is additive |
 | 0:17-0:30 | Native 90-day duration chart | `create_history_view` |
-| 0:30-0:40 | Longest fast and source record highlighted | `highlight_history_records` |
-| 0:40-0:54 | 16, 18, and 20-hour end-time comparison | `preview_fasting_decision` with no mutation |
+| 0:30-0:41 | Longest fast and source record highlighted | `highlight_history_records` |
+| 0:41-0:54 | 16, 18, and 20-hour end-time comparison | `preview_fasting_decision` with no mutation |
 | 0:54-1:00 | Bright light UI | `set_visual_mode`, reversible in the tab |
-| 1:00-1:12 | Exact approval sheet, then active timer and receipt | `start_fast`, user confirmation, audit evidence |
-| 1:12-1:30 | Allowed and blocked capability matrix | 17 named tools and explicit boundaries |
-| 1:30-1:40 | Live demo and public source | MIT license |
+| 1:00-1:13 | Exact approval sheet, then active timer and receipt | `start_fast`, user confirmation, audit evidence |
+| 1:13-1:31 | Allowed and blocked capability matrix | 17 named tools and explicit boundaries |
+| 1:31-1:40 | Live demo and public source | MIT license |
 
 ## Review gates
 
