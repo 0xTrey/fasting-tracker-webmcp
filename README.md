@@ -2,7 +2,7 @@
 
 Fasting Tracker is a real, iPhone-first timer and journal with an optional agent control surface. The human interface is the product. WebMCP lets a compatible chatbot use 17 named capabilities that the application defines and limits.
 
-[Open the credential-free demo](https://fasting-tracker-webmcp-demo.harnden-trey.workers.dev/) · [Read the video script](video/SCRIPT.md) · [View the WebMCP Challenge](https://openai.com/webmcp-challenge/)
+[Open the credential-free demo](https://fasting-tracker-webmcp-demo.harnden-trey.workers.dev/) · [Watch the 1:41 demo](https://www.youtube.com/watch?v=YrP55Q2LqAE) · [Read the video script](video/SCRIPT.md) · [View the WebMCP Challenge](https://openai.com/webmcp-challenge/)
 
 ![A chatbot builds a 90-day duration view inside the Fasting Tracker interface](docs/screenshots/duration-trend.png)
 
@@ -65,7 +65,7 @@ Production and demo use the same source, but separate Workers, D1 databases, ses
 
 The repository also includes a remote MCP server for a separately authorized trusted agent. That server is not enabled in the public demo and is not required for the WebMCP experience.
 
-More detail: [architecture](docs/architecture.md) · [capability contract](docs/webmcp-capabilities.md) · [judge demo flow](docs/demo-flow.md)
+More detail: [architecture](docs/architecture.md) · [capability contract](docs/webmcp-capabilities.md) · [judge demo flow](docs/demo-flow.md) · [Challenge provenance](docs/challenge-provenance.md) · [QA report](docs/qa-report-2026-09-02.md) · [Devpost draft](devpost-submission.md)
 
 ## Run it locally
 
