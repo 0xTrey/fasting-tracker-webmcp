@@ -19,6 +19,18 @@ export interface AgentConfirmationController {
   cancel: (id: string) => void;
 }
 
+export function formatDurationForPeople(totalMinutes: number): string {
+  if (totalMinutes >= 2_880 && totalMinutes % 1_440 === 0) {
+    const days = totalMinutes / 1_440;
+    return `${days}-day`;
+  }
+  if (totalMinutes % 60 === 0) {
+    const hours = totalMinutes / 60;
+    return `${hours}-hour`;
+  }
+  return `${totalMinutes}-minute`;
+}
+
 function abortError(): Error {
   const error = new Error("The agent request ended before the user made a decision.");
   error.name = "AbortError";

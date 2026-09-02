@@ -19,7 +19,7 @@ import {
   type WorkspaceLayout,
 } from "@/lib/agent-workspace";
 import { BROWSER_WEBMCP_TOOL_NAMES } from "@/lib/webmcp-tools";
-import { agentConfirmation } from "@/lib/agent-confirmation";
+import { agentConfirmation, formatDurationForPeople } from "@/lib/agent-confirmation";
 
 export type WebMcpStatus = "unsupported" | "registering" | "ready" | "failed";
 
@@ -442,7 +442,7 @@ export function useWebMcp(): WebMcpStatus {
           if (!Number.isInteger(weeklyGoal) || (weeklyGoal as number) < 1 || (weeklyGoal as number) > 7) throw new Error("weeklyGoal must be 1 to 7.");
           if (typeof startDate !== "string" || typeof endDate !== "string") throw new Error("startDate and endDate are required.");
           await requireAgentConfirmation(
-            `Create “${name.trim()}” from ${startDate} through ${endDate}, with ${(targetDurationMinutes as number) / 60} hours as the user-chosen target and ${weeklyGoal} fasts per week?`,
+            `Create “${name.trim()}” from ${startDate} through ${endDate}. Target: ${formatDurationForPeople(targetDurationMinutes as number)}. Goal: ${weeklyGoal} fasts per week.`,
             "Create experiment",
             signal,
           );
@@ -513,7 +513,7 @@ export function useWebMcp(): WebMcpStatus {
             throw new Error("targetDurationMinutes must be a whole number.");
           }
           await requireAgentConfirmation(
-            `Your agent wants to start a ${targetDurationMinutes}-minute fast now.`,
+            `Your agent wants to start a fast now. Requested target: ${formatDurationForPeople(targetDurationMinutes)}.`,
             "Start fast",
             signal,
           );

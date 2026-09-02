@@ -1,5 +1,13 @@
 import { describe, expect, it, vi } from "vitest";
-import { createAgentConfirmationController } from "@/lib/agent-confirmation";
+import { createAgentConfirmationController, formatDurationForPeople } from "@/lib/agent-confirmation";
+
+describe("human-readable agent durations", () => {
+  it("uses the clearest unit for common fasting targets", () => {
+    expect(formatDurationForPeople(90)).toBe("90-minute");
+    expect(formatDurationForPeople(1_080)).toBe("18-hour");
+    expect(formatDurationForPeople(10_080)).toBe("7-day");
+  });
+});
 
 describe("agent confirmation boundary", () => {
   it("keeps a mutation pending until the user explicitly approves it", async () => {
