@@ -1,0 +1,6 @@
+AUTH_USERNAME=tracker-owner
+AUTH_PASSWORD_VERIFIER=pbkdf2_sha256$100000$replace-with-base64url-salt$replace-with-base64url-derived-key
+SESSION_PEPPER=replace-with-at-least-32-random-bytes
+MCP_TOKEN_HASH=replace-with-sha256-hash-from-auth-generator
+# MCP_TOKEN_PREVIOUS_HASH=optional-previous-hash-during-rotation
+ADMIN_API_TOKEN_HASH=replace-with-sha256-hash-from-auth-generator

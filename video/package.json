@@ -1,0 +1,30 @@
+{
+  "name": "fasting-tracker-webmcp-video",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "studio": "remotion studio src/index.tsx",
+    "typecheck": "tsc --noEmit",
+    "render:master": "remotion render src/index.tsx FastingTrackerMaster out/fasting-tracker-webmcp-master.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p --muted",
+    "render:narrated": "remotion render src/index.tsx FastingTrackerNarrated out/fasting-tracker-webmcp-narrated.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p",
+    "render:draft": "remotion render src/index.tsx FastingTrackerNarrated out/fasting-tracker-webmcp-review-draft.mp4 --codec=h264 --crf=26 --pixel-format=yuv420p --scale=0.5",
+    "render:vertical": "remotion render src/index.tsx FastingTrackerVertical out/fasting-tracker-webmcp-vertical.mp4 --codec=h264 --crf=20",
+    "still:opening": "remotion still src/index.tsx FastingTrackerMaster out/opening.png --frame=120",
+    "still:trend": "remotion still src/index.tsx FastingTrackerMaster out/trend.png --frame=690",
+    "still:approval": "remotion still src/index.tsx FastingTrackerMaster out/approval.png --frame=1920",
+    "still:end": "remotion still src/index.tsx FastingTrackerMaster out/end.png --frame=2850"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/media-utils": "^4.0.0",
+    "@remotion/player": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.7.2"
+  }
+}
