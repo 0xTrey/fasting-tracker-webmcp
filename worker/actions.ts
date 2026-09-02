@@ -610,6 +610,10 @@ export async function listTrackerActivity(env: Env, limit = 25): Promise<AuditEv
     `SELECT event_id, occurred_at, actor_type, origin, action, resource_type, resource_id, outcome, request_id
      FROM audit_events
      WHERE resource_type = 'fast' AND origin IN ('web', 'mcp')
+       AND id > COALESCE((
+         SELECT MAX(id) FROM audit_events
+         WHERE action = 'demo.reset' AND outcome = 'succeeded'
+       ), 0)
      ORDER BY occurred_at DESC LIMIT ?1`,
   ).bind(boundedLimit).all<{
     event_id: string;
