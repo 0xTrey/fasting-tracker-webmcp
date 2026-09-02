@@ -10,7 +10,7 @@ This is the copy-ready package for the WebMCP Challenge. The final submission re
 | Field | Answer |
 | --- | --- |
 | Project name | Fasting Tracker |
-| Tagline | A real iPhone-first tracker with safe agent capabilities designed and controlled by the app. |
+| Tagline | A real iPhone-first fasting tracker with 17 app-defined WebMCP capabilities for agents. |
 | Submitter type | Individual |
 | Country | United States |
 | App status | Existing |
@@ -21,7 +21,7 @@ This is the copy-ready package for the WebMCP Challenge. The final submission re
 
 ## Project description
 
-Fasting Tracker is a real, iPhone-first timer and journal. A person can start a fast, check the countdown, correct an active start time, review history, compare periods, and track a goal without ever using a chatbot.
+Fasting Tracker is a real, iPhone-first timer and journal I built for myself and still use. A person can start a fast, check the countdown, correct an active start time, review history, compare periods, and track a goal without ever using a chatbot.
 
 WebMCP adds a second control surface to that same app. A compatible browser agent gets 17 named capabilities that the tracker defines and limits. The agent can read the current timer, build one of six history views, compare periods, highlight the records behind an explanation, preview several timing options, switch the open tab to a different layout or visual mode, and request a small set of saved changes.
 
@@ -53,6 +53,10 @@ They can ask, “Compare 16, 18, and 20-hour options without starting a fast.”
 
 They can ask to start an 18-hour fast. The app opens a clear approval dialog. Nothing is saved until the person chooses **Start fast**.
 
+### What changed during the Challenge
+
+I first built the original app on Replit around January 2025 and kept using and improving it. I moved it to a newer Cloudflare Workers and D1 version in early August 2026. During the final week, after the Submission Period opened, I added the agent-facing API and action layer, the MCP and browser WebMCP integration, 17 agent capabilities, and the new history, visualization, workspace, experiment, confirmation, audit, and demo features. The public repository includes a dated provenance document that separates this work from the earlier tracker.
+
 ### How WebMCP was implemented
 
 The React page detects `document.modelContext` and registers 17 tools with JSON input schemas, descriptions, read-only annotations, and bounded execute functions. Read tools use the same Cloudflare Worker routes as the visible app. View tools update React state so results appear inside the tracker. Mutation tools wait on an app-owned approval controller before sending a protected request to the Worker.
@@ -61,7 +65,7 @@ The Worker stores demo records in Cloudflare D1. It enforces origin and content-
 
 ## Existing-app changes field
 
-Fasting Tracker existed before August 25, 2026 as a conventional mobile timer and journal. During the Submission Period, I added the WebMCP experience: 17 browser capabilities, agent-created history views, record-level evidence highlighting, non-mutating timing previews, workspace and visual controls, user-defined experiments, app-owned confirmation for saved changes, audit receipts, an isolated credential-free demo, a repeatable synthetic reset, and automated security and behavior tests. The public repository and `docs/challenge-provenance.md` identify the post-start work and dated commits. Pre-existing tracker features are not presented as Challenge work.
+Fasting Tracker is an existing web app I first built on Replit around January 2025 and have used personally for the better part of a year. I kept building it up over time and moved it to a newer Cloudflare Workers and D1 version in early August 2026, roughly a month before this submission. Only during the final week, after the Submission Period opened, did I add the agent-facing API and action layer, the MCP and browser WebMCP integration, 17 agent capabilities, and the new history, visualization, workspace, experiment, confirmation, audit, and demo features that make the product much more useful when an agent can work inside it. The public repository and `docs/challenge-provenance.md` separate that Challenge-period work from the earlier tracker.
 
 ## Testing instructions field
 
@@ -92,11 +96,13 @@ OpenAI Codex and Cursor were used for product planning, implementation, code rev
 | Learning from this project | Significant |
 | Will AI skills be valuable to your career? | Yes |
 
-## Suggested gallery order
+## Final title, tagline, and gallery
 
-1. `docs/screenshots/duration-trend.png`, the app renders an agent-requested chart.
-2. `docs/screenshots/approval-gate.png`, a saved change stops for app-owned human approval.
-3. `docs/screenshots/end-card.png`, the live demo and MIT source close.
+- **Title:** Fasting Tracker
+- **Tagline:** A real iPhone-first fasting tracker with 17 app-defined WebMCP capabilities for agents.
+- **Thumbnail and gallery image 1:** `docs/screenshots/duration-trend.png`, the strongest single-frame explanation of the product. It shows the iPhone interface, an agent request, the named WebMCP tool call, and the app-rendered result.
+- **Gallery image 2:** `docs/screenshots/approval-gate.png`, proof that saved changes stop at an app-owned human approval gate.
+- **Gallery image 3:** `docs/screenshots/end-card.png`, the broader product thesis plus the live demo and MIT-licensed source.
 
 ## Final review checklist
 

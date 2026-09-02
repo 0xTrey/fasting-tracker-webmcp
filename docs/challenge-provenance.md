@@ -1,10 +1,12 @@
 # WebMCP Challenge work provenance
 
-The official Submission Period began on August 25, 2026 at 11:00 AM Pacific Time. Fasting Tracker existed before that date, so this entry is explicitly an existing app extended with WebMCP. Only work added during the Submission Period is presented for judging.
+Fasting Tracker was not created for this Challenge. I first built the original version on Replit around January 2025 and used it personally for the better part of a year. I kept building it up over time, then moved it to a newer Cloudflare Workers and D1 version in early August 2026, roughly a month before this submission.
+
+Only during the final week, after the official Submission Period opened on August 25, 2026, did I add the agent-facing API and action layer, the MCP and browser WebMCP integration, 17 agent capabilities, and the new history, visualization, workspace, experiment, confirmation, audit, and demo features. This document separates that Challenge-period work from the earlier tracker.
 
 ## What existed before August 25
 
-The prior app was a conventional fasting timer and journal with a human-operated interface, basic history, and statistics. It had already been migrated to Cloudflare Workers and D1.
+The prior app was a conventional fasting timer and journal with a human-operated interface, basic history, and statistics. The approximately January 2025 date for the original Replit version is based on the creator's recollection; that early repository is not part of the public Challenge snapshot. The later Cloudflare migration is recorded in the private development history.
 
 Private development history records that baseline:
 
