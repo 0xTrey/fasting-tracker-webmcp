@@ -106,4 +106,3 @@ OpenAI Codex and Cursor were used for product planning, implementation, code rev
 - Reopen the live demo, source repository, and YouTube video from a signed-out window.
 - Read the official rules and make the required entrant attestations yourself.
 - Submit only after the final read-through.
-
