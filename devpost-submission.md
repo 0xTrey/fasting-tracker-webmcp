@@ -5,6 +5,8 @@ Nothing has been sent to Devpost.
 
 This is the copy-ready package for the WebMCP Challenge. The final submission remains a separate review and approval step.
 
+The public Devpost project preview is live at https://devpost.com/software/fasting-tracker. Its hackathon record still has no submission timestamp.
+
 ## Core fields
 
 | Field | Answer |
@@ -17,6 +19,7 @@ This is the copy-ready package for the WebMCP Challenge. The final submission re
 | Live demo | https://fasting-tracker-webmcp-demo.harnden-trey.workers.dev/ |
 | Public source | https://github.com/0xTrey/fasting-tracker-webmcp |
 | Demo video | https://www.youtube.com/watch?v=YrP55Q2LqAE |
+| Devpost preview | https://devpost.com/software/fasting-tracker |
 | License | MIT |
 
 ## Project description
